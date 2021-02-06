@@ -1,13 +1,14 @@
 #Используем базовый образ Ubuntu 20.04
-FROM ubuntu:20.04
+FROM tomcat:9.0.43-jdk11-adoptopenjdk-openj9
+#FROM ubuntu:20.04
 RUN apt update
 
 #Установка AdoptOpenJDK
-RUN apt-get install default-jdk -y
+#RUN apt-get install default-jdk -y
 
 #Установка и запуск Tomcat9
-RUN apt-get install tomcat9 -y
-EXPOSE 8080
+#RUN apt-get install tomcat9 -y
+#EXPOSE 8080
 
 #Установка Git
 RUN apt-get install git -y
@@ -23,4 +24,3 @@ WORKDIR /home/pkhramchenkov/boxfuse-sample-java-war-hello/
 RUN mvn package
 WORKDIR /home/pkhramchenkov/boxfuse-sample-java-war-hello/target/
 RUN cp hello-1.0.war /var/lib/tomcat9/webapps/
-CMD ["tomcat9", "-g", "daemon off;"]
