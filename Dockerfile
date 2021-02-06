@@ -23,3 +23,4 @@ WORKDIR /home/pkhramchenkov/boxfuse-sample-java-war-hello/
 RUN mvn package
 WORKDIR /home/pkhramchenkov/boxfuse-sample-java-war-hello/target/
 RUN cp hello-1.0.war /var/lib/tomcat9/webapps/
+CMD ["tomcat9", "-g", "daemon off;"]
