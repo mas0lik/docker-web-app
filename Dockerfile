@@ -3,17 +3,17 @@ FROM ubuntu:20.04
 RUN apt update
 
 #Установка AdoptOpenJDK
-RUN apt install default-jdk -y
+RUN apt-get install default-jdk -y
 
 #Установка и запуск Tomcat9
-RUN apt install tomcat9 -y
+RUN apt-get install tomcat9 -y
 EXPOSE 8080
 
 #Установка Git
-RUN apt install git -y
+RUN apt-get install git -y
 
 #Установка maven
-RUN apt install maven -y
+RUN apt-get install maven -y
 
 
 #Клонирование репозитория, сборка, копирование веб-приложения в Tomcat9
