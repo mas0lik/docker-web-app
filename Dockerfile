@@ -8,7 +8,6 @@ RUN apt install default-jdk -y
 #Установка и запуск Tomcat9
 RUN apt install tomcat9 -y
 EXPOSE 8080
-CMD ["catalina.sh", "run"]
 
 #Установка Git и клонирование репозитория
 RUN apt install git -y
