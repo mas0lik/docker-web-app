@@ -17,10 +17,9 @@ RUN apt install maven -y
 
 
 #Клонирование репозитория, сборка, копирование веб-приложения в Tomcat9
-RUN mkdir /home/pkhramchenkov
-RUN cd /home/pkhramchenkov/
+WORKDIR /home/pkhramchenkov/
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
-RUN cd /home/pkhramchenkov/boxfuse-sample-java-war-hello/
+WORKDIR /home/pkhramchenkov/boxfuse-sample-java-war-hello/
 RUN mvn package
-RUN cd /home/pkhramchenkov/boxfuse-sample-java-war-hello/target/
+WORKDIR /home/pkhramchenkov/boxfuse-sample-java-war-hello/target/
 RUN cp hello-1.0.war /var/lib/tomcat9/webapps/
