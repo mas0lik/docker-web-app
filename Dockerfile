@@ -1,5 +1,6 @@
-#Используем базовый образ Ubuntu 20.04
+#Используем базовый образ Tocmat9 + AdoptOpenJDK
 FROM tomcat:9.0.43-jdk11-adoptopenjdk-openj9
+#Используем базовый образ Ubuntu 20.04
 #FROM ubuntu:20.04
 RUN apt update
 
@@ -18,9 +19,10 @@ RUN apt-get install maven -y
 
 
 #Клонирование репозитория, сборка, копирование веб-приложения в Tomcat9
+WORKDIR /usr/local/tomcat/webapps
 WORKDIR /home/pkhramchenkov/
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
 WORKDIR /home/pkhramchenkov/boxfuse-sample-java-war-hello/
 RUN mvn package
 WORKDIR /home/pkhramchenkov/boxfuse-sample-java-war-hello/target/
-RUN cp hello-1.0.war /var/lib/tomcat9/webapps/
+RUN cp hello-1.0.war /usr/local/tomcat/webapps/
