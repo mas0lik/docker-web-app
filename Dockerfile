@@ -1,7 +1,7 @@
 #Используем базовый образ Ubuntu 20.04
 FROM ubuntu:20.04
 RUN apt update
-RUN apt-get install wget
+RUN apt-get install wget -y
 #Установка AdoptOpenJDK
 RUN apt-get install default-jdk -y
 #Установка Git
