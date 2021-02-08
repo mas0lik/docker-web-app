@@ -26,5 +26,7 @@ WORKDIR /home/pkhramchenkov/boxfuse-sample-java-war-hello/target/
 RUN cp hello-1.0.war /usr/local/tomcat/webapps/
 
 #Запуск службы Tomcat9
-WORKDIR /usr/share/tomcat9/bin/
+ENV CATALINA_HOME /usr/share/tomcat9
+ENV PATH $CATALINA_HOME/bin:$PATH
+WORKDIR $CATALINA_HOME
 CMD ["catalina.sh", "run"]
